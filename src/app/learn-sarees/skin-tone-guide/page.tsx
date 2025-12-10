@@ -284,15 +284,6 @@ export default function SkinToneGuidePage() {
     </div>
   )
 }
-
-/* Tailwind CSS Custom Styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    @apply scroll-smooth;
   }
   
   body {

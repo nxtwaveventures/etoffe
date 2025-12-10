@@ -95,6 +95,7 @@ export default function LearnSareesPage() {
               </p>
                 <p className="text-sage-green font-semibold">
                 Read everything here. Then, if you want custom weaving, begin with our <Link href="/get-started" className="underline">Get Started form</Link>.
+              </p>
           </div>
         </div>
       </div>

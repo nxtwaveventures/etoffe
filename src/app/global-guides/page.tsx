@@ -5,7 +5,7 @@ export default function GlobalGuidesPage() {
     {
       title: 'First Time Wearing a Saree',
       href: '/global-guides/first-time',
-      description: 'Complete beginner's guide: draping, mistakes to avoid, confidence tips. Perfect for absolute first-timers.',
+      description: 'Complete beginner\'s guide: draping, mistakes to avoid, confidence tips. Perfect for absolute first-timers.',
       emoji: '🎯'
     },
     {
