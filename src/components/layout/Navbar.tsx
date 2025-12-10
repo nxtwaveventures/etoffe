@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-2xl font-heading font-bold text-deep-burgundy">
-            11 Sari
+            Étoffe
           </Link>
 
           {/* Desktop Nav */}

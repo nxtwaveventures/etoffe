@@ -23,9 +23,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: '11 Sari — Clarity that unlocks your hidden wealth',
-  description: 'Global saree concierge service. Varanasi weaving network. Custom 3-4 month weaving process. Introducing Indian sarees to the world.',
-  keywords: 'handloom sarees, bespoke saree, weaving traditions, Varanasi sarees, custom saree service, global saree guide',
+  title: 'Étoffe — Authentic Indian Sarees for the World',
+  description: 'Authentic Banarasi sarees. Direct from Varanasi weavers to global clients. Custom weaving in 2-3 months.',
+  keywords: 'authentic banarasi sarees, handloom sarees, varanasi weavers, custom saree, indian sarees, silk sarees',
 }
 
 export default function RootLayout({

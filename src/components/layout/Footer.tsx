@@ -10,10 +10,10 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <h3 className="text-2xl font-heading font-bold text-deep-burgundy mb-2">
-              11 Sari
+              Étoffe
             </h3>
             <p className="text-soft-gray text-sm">
-              Clarity that unlocks your hidden wealth.
+              Authentic Banarasi sarees for the world.
             </p>
             <p className="text-soft-gray/60 text-xs mt-4">
               Varanasi weaving network.<br />
@@ -61,7 +61,7 @@ export default function Footer() {
         {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-pale-gold/20">
           <p className="text-center text-soft-gray text-sm">
-            © {currentYear} 11 Sari. All rights reserved.<br />
+            © {currentYear} Étoffe. All rights reserved.<br />
             <span className="text-xs text-soft-gray/60">GDPR & GST compliant. We respect your privacy and never share buyer information.</span>
           </p>
         </div>
