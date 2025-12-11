@@ -19,10 +19,10 @@ export default function GetStartedPage() {
               What to Expect
             </h2>
             <div className="space-y-3 text-soft-gray">
-              <p>✓ This is <strong className="text-charcoal">not fast fashion</strong>. Custom weaving takes 3–4 months.</p>
-              <p>✓ Investment range: <strong className="text-deep-burgundy">$500–$3,000 USD</strong> depending on silk quality, zari density, and motif complexity.</p>
-              <p>✓ We ask detailed questions about your preferences, skin tone, occasions, and cultural alignment.</p>
-              <p>✓ We'll review your submission and respond within <strong className="text-charcoal">48 hours</strong>.</p>
+              <p>✓ This is <strong className="text-charcoal">not fast fashion</strong>. Custom weaving takes 2–3 months.</p>
+              <p>✓ Honest pricing discussed after understanding your preferences.</p>
+              <p>✓ We ask detailed questions about your preferences and occasions.</p>
+              <p>✓ We'll review your submission and respond within <strong className="text-charcoal">2-3 days</strong>.</p>
             </div>
           </div>
 

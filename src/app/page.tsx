@@ -1,8 +1,5 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Globe, BookOpen, Heart, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -10,12 +7,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-warm-cream overflow-hidden">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative z-10 text-center max-w-3xl mx-auto px-6"
-        >
+        <div className="relative z-10 text-center max-w-3xl mx-auto px-6">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-deep-burgundy mb-6">
             Own an Indian Saree
           </h1>
@@ -54,7 +46,7 @@ export default function HomePage() {
           <p className="text-soft-gray text-sm">
             For global enthusiasts who value craft, heritage and thoughtful collaboration.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Customer Reviews */}
@@ -70,13 +62,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Japan Review */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="card"
-          >
+          <div className="card">
             <div className="mb-4">
               <span className="text-2xl">🇯🇵</span>
               <span className="ml-2 text-sm text-soft-gray">Tokyo, Japan</span>
@@ -85,16 +71,10 @@ export default function HomePage() {
               "It\'s my first saree. The weaving took time, but the result is beautiful. I love wearing it to special occasions."
             </p>
             <p className="text-xs text-soft-gray/60">— Anonymous Buyer</p>
-          </motion.div>
+          </div>
 
           {/* Germany Review */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="card"
-          >
+          <div className="card">
             <div className="mb-4">
               <span className="text-2xl">🇩🇪</span>
               <span className="ml-2 text-sm text-soft-gray">Berlin, Germany</span>
@@ -103,16 +83,10 @@ export default function HomePage() {
               "We love wearing it to functions and parties. The process was transparent and they kept us updated throughout."
             </p>
             <p className="text-xs text-soft-gray/60">— Anonymous Buyer</p>
-          </motion.div>
+          </div>
 
           {/* New York Review */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="card"
-          >
+          <div className="card">
             <div className="mb-4">
               <span className="text-2xl">🇺🇸</span>
               <span className="ml-2 text-sm text-soft-gray">New York, USA</span>
@@ -121,11 +95,9 @@ export default function HomePage() {
               "My first custom saree. We wear it to family gatherings and get so many compliments. Worth the investment."
             </p>
             <p className="text-xs text-soft-gray/60">— Anonymous Buyer</p>
-          </motion.div>
+          </div>
         </div>
       </section>
-
-
     </div>
   )
 }
