@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navbar() {
@@ -42,45 +42,15 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-8">
               {mainNav.map((item, index) => (
-                <li key={index} className="relative group">
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className={`transition-colors duration-200 font-heading ${item.cta ? 'hidden' : 'text-charcoal hover:text-soft-terracotta'}`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                  <>
-                    <button
-                      className="flex items-center gap-1 text-soft-gray hover:text-soft-terracotta transition-colors duration-200 font-heading"
-                      onMouseEnter={() => setOpenDropdown(item.label)}
-                    >
-                      {item.label}
-                      <ChevronDown size={16} />
-                    </button>
-                    {/* Dropdown Menu */}
-                    <div
-                      className="absolute top-full left-0 mt-2 w-56 bg-warm-sand border border-pale-gold rounded-lg shadow-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
-                      onMouseLeave={() => setOpenDropdown(null)}
-                    >
-                      <ul className="py-2">
-                        {item.submenu?.map((subitem, subindex) => (
-                          <li key={subindex}>
-                            <Link
-                              href={subitem.href}
-                              className="block px-4 py-2 text-charcoal hover:text-deep-burgundy hover:bg-warm-sand/80 transition-colors"
-                            >
-                              {subitem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                )}
-              </li>
-            ))}
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    className={`transition-colors duration-200 font-heading ${item.cta ? 'hidden' : 'text-charcoal hover:text-soft-terracotta'}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
             
             {/* PayPal Badge */}
@@ -115,40 +85,13 @@ export default function Navbar() {
             <ul className="px-6 py-4 space-y-4">
               {mainNav.map((item, index) => (
                 <li key={index}>
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block transition-colors ${item.cta ? 'text-warm-cream' : 'text-charcoal hover:text-deep-burgundy'}`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <div>
-                      <button
-                        onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                        className="flex items-center justify-between w-full text-soft-gray hover:text-soft-terracotta transition-colors"
-                      >
-                        {item.label}
-                        <ChevronDown size={16} className={`transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
-                      </button>
-                      {openDropdown === item.label && (
-                        <ul className="mt-2 ml-4 space-y-2">
-                          {item.submenu?.map((subitem, subindex) => (
-                            <li key={subindex}>
-                              <Link
-                                href={subitem.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="block text-charcoal/80 hover:text-deep-burgundy transition-colors text-sm"
-                              >
-                                {subitem.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  )}
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block transition-colors ${item.cta ? 'text-warm-cream' : 'text-charcoal hover:text-deep-burgundy'}`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
