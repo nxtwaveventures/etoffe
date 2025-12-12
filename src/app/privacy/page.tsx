@@ -14,7 +14,7 @@ export default function PrivacyPage() {
                 Your Privacy Matters
               </h2>
               <p>
-                At 11 Sari, we take your privacy seriously. We collect only essential information needed to curate your perfect saree and facilitate the crafting process.
+                At Étoffe, we take your privacy seriously. We collect only essential information needed to curate your perfect saree and facilitate the crafting process.
               </p>
             </div>
 
