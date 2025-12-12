@@ -21,6 +21,7 @@ export default function Navbar() {
   const mainNav = [
     { href: '/about', label: 'About' },
     { href: '/faq', label: 'FAQ' },
+    { href: '/gallery', label: 'Gallery' },
     { href: '/contact', label: 'Contact' },
     { href: '/get-started', label: 'Get Started', cta: true },
   ]

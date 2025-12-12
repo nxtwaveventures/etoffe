@@ -47,7 +47,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com/11sari" target="_blank" rel="noopener noreferrer" className="text-soft-gray hover:text-soft-terracotta transition-colors text-sm">
+                <a href="https://www.instagram.com/etoffe.sarees/" target="_blank" rel="noopener noreferrer" className="text-soft-gray hover:text-soft-terracotta transition-colors text-sm">
                   Instagram
                 </a>
               </li>

@@ -13,8 +13,20 @@ export default function HomePage() {
           </h1>
           
           <p className="text-lg md:text-xl text-soft-gray mb-8 max-w-2xl mx-auto leading-relaxed">
-            Fill our form. We curate 3 choices for you. Your saree arrives in 2–3 months. Honest pricing. Serious buyers only.
+            Fill our form. We curate 3 choices for you. Your saree arrives in 2–3 months.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8 text-sm md:text-base">
+            <span className="px-4 py-2 bg-warm-sand/50 rounded-full text-charcoal font-medium">
+              Ready to wear
+            </span>
+            <span className="px-4 py-2 bg-warm-sand/50 rounded-full text-charcoal font-medium">
+              Honest pricing
+            </span>
+            <span className="px-4 py-2 bg-warm-sand/50 rounded-full text-charcoal font-medium">
+              Serious buyers only
+            </span>
+          </div>
 
           {/* Quick Reviews in Hero */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-sm">
