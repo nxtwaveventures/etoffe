@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-heading font-bold text-charcoal mb-6 text-center">
-            About <span className="text-deep-burgundy">11 Sari</span>
+            About <span className="text-deep-burgundy">Étoffe</span>
           </h1>
           <p className="text-xl text-soft-gray text-center mb-16">
             We choose your saree together. Varanasi weaving network. Global education.
