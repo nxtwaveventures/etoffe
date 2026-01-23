@@ -1,0 +1,13 @@
+[Unit]
+Description=Etoffe Studio Telegram Bot
+After=network.target
+
+[Service]
+User=anamika
+WorkingDirectory=/home/anamika/etoffe_engine
+ExecStart=/home/anamika/etoffe_engine/.venv/bin/python3 main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
