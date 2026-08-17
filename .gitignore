@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+outputs/
+*.tif
+
+# manages its own git history
+earth-engine-project/
