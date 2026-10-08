@@ -8,3 +8,5 @@ outputs/
 
 # manages its own git history
 earth-engine-project/
+.vercel
+.env*
