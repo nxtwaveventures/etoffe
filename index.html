@@ -145,6 +145,19 @@ section{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
 .tier.big{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .tier.big p{color:var(--bg);opacity:.8}
 
+/* comparison */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.compare{width:100%;border-collapse:collapse;min-width:680px;font-size:.93rem}
+.compare th,.compare td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:center}
+.compare tbody tr:last-child th,.compare tbody tr:last-child td{border-bottom:0}
+.compare thead th{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.compare tbody th{text-align:left;font-weight:500}
+.compare .us{color:var(--accent)}
+.compare td:nth-child(2),.compare th.us{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.compare .y{color:var(--good);font-weight:600;font-size:1.1rem}
+.compare .n{color:var(--muted)}
+.compare .p{color:var(--mid);font-size:.85rem}
+
 /* find fix verify */
 .ffv{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .ffv div{padding:20px 22px;border-right:1px solid var(--line);display:grid;gap:6px;background:var(--surface)}
@@ -187,7 +200,7 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top">Etoffe<span>Score</span></a>
-  <div class="links"><a href="#risk">The risk</a><a href="#check">Claim checker</a><a href="#rules">Rulebook</a><a href="#pricing">Pricing</a><a href="#how">How it works</a></div>
+  <div class="links"><a href="#risk">The risk</a><a href="#check">Claim checker</a><a href="#compare">Why Etoffe</a><a href="#rules">Rulebook</a><a href="#pricing">Pricing</a><a href="#how">How it works</a></div>
   <a class="btn primary" href="#free">Upload products</a>
 </div></nav>
 
@@ -291,6 +304,27 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
       <div><b>Verify</b><p>We re-check every correction, so nothing goes to print until it passes.</p></div>
     </div>
     <p class="diff">Compliant is the minimum. <em>Trusted</em> is the goal.</p>
+  </section>
+
+  <section id="compare">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">Why Etoffe</span><h2>Others find problems. We solve them.</h2></div>
+      <p>Most tools cover one part of the job. Etoffe Score covers the whole path from a risky pack to a fixed, trusted product.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th></th><th class="us">Etoffe Score</th><th>Label compliance tools</th><th>Packaging artwork software</th><th>Food scanner apps</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Checks claims against FSSAI rules</th><td class="y">✓</td><td class="y">✓</td><td class="p">Partly</td><td class="n">–</td></tr>
+        <tr><th scope="row">Fixes the mistakes it finds</th><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        <tr><th scope="row">Health score for diabetes and high BP</th><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="p">For shoppers</td></tr>
+        <tr><th scope="row">Reformulation advice</th><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        <tr><th scope="row">Fixes Blinkit, Zepto and Amazon listings</th><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        <tr><th scope="row">Up to 10,000 products, priced per product</th><td class="y">✓</td><td class="n">–</td><td class="p">Enterprise plans</td><td class="n">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rules-note">Based on publicly described features of each type of tool, October 2026.</p>
   </section>
 
   <section id="rules">
