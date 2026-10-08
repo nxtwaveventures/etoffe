@@ -1,304 +1,403 @@
-<\!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aster Studio | Beautiful Websites</title>
-    <meta
-      name="description"
-      content="Creative portfolio for logo design, websites, paintings, and code work."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a href="#top" class="brand" aria-label="Aster home">Aster<span>.</span></a>
-        <nav class="menu" aria-label="Main navigation">
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#credentials">Credentials</a>
-        </nav>
-        <a class="button button-small" href="#contact">Book a project</a>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Etoffe Score checks food packs and listings against the latest FSSAI norms. Upload 1 to 10,000 products and pay per product.">
+<title>Etoffe Score</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: pain → proof → solution sales page. Hero states the risk, a dated enforcement timeline proves it, a live claim checker shows the fix, then offer and free check. Ink on paper, orange brand accent, red/amber/green only for claim verdicts */
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --fg:#17150f; --muted:#67625a; --line:#e3dfd7;
+  --accent:#d9620f; --accent-ink:#ffffff;
+  --good:#2f7d4f; --mid:#a86d12; --bad:#b4372b;
+  --good-bg:#e6f2ea; --mid-bg:#f8eedb; --bad-bg:#f7e3e0;
+  --serif:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12110e; --surface:#1b1a16; --fg:#f1ede5; --muted:#a39d92; --line:#2e2b25;
+  --accent:#f07f2c; --accent-ink:#12110e;
+  --good:#6cc28f; --mid:#e2b25a; --bad:#ec7b6e;
+  --good-bg:#1c2b21; --mid-bg:#2e2615; --bad-bg:#33201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12110e; --surface:#1b1a16; --fg:#f1ede5; --muted:#a39d92; --line:#2e2b25;
+  --accent:#f07f2c; --accent-ink:#12110e;
+  --good:#6cc28f; --mid:#e2b25a; --bad:#ec7b6e;
+  --good-bg:#1c2b21; --mid-bg:#2e2615; --bad-bg:#33201d; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 16.5px/1.65 var(--sans);padding-inline:16px}
+.wrap{max-width:1140px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.4vw,3.1rem)}
+h3{font-size:1.4rem}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-inline:-16px;padding:14px 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-size:1.45rem;font-weight:600;text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.logo span{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-left:8px;vertical-align:middle}
+nav .links{display:flex;gap:22px;flex-wrap:wrap;font-size:.92rem}
+nav .links a{text-decoration:none;color:var(--muted)}
+nav .links a:hover{color:var(--fg)}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:500;font-size:.95rem;text-decoration:none;border:1px solid var(--fg);color:var(--fg);background:transparent}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+
+section{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:end;margin-bottom:44px}
+.head p{color:var(--muted);max-width:56ch}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(48px,8vw,96px) 56px}
+.hero h1{font-size:clamp(2.5rem,5.8vw,4.3rem)}
+.hero h1 em{font-style:italic;color:var(--bad)}
+.hero .lede{font-size:1.13rem;color:var(--muted);max-width:52ch;margin-top:20px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .small{font-size:.85rem;color:var(--muted);margin-top:12px}
+.pack{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:14px;box-shadow:0 20px 50px -30px rgba(0,0,0,.35);min-width:0}
+.pack .label{border:1.5px dashed var(--line);border-radius:10px;padding:18px;display:grid;gap:10px}
+.pack .brand{font-family:var(--serif);font-size:1.6rem}
+.pack .claims{display:flex;gap:8px;flex-wrap:wrap}
+.pack .claims span{font-family:var(--mono);font-size:.78rem;padding:4px 10px;border-radius:999px}
+.pack .ing{font-size:.82rem;color:var(--muted)}
+.pack .sum{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.8rem;flex-wrap:wrap}
+.pack .note{font-size:.76rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+
+/* timeline */
+.timeline{display:grid;border-left:2px solid var(--line);margin-left:6px}
+.event{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:0 0 30px 26px;position:relative}
+.event::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--bad)}
+.event time{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-top:2px}
+.event strong{font-family:var(--serif);font-size:1.3rem;font-weight:500;display:block;margin-bottom:4px}
+.event p{color:var(--muted);max-width:62ch}
+.event q{font-family:var(--mono);font-size:.85em;color:var(--fg)}
+
+/* pains */
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pain{border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:8px;align-content:start;background:var(--surface)}
+.pain b{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bad)}
+.pain p{color:var(--muted);font-size:.94rem}
+.cost{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cost span{font-size:.9rem;padding:6px 12px;border-radius:6px;background:var(--bad-bg);color:var(--bad)}
+.cost strong{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin-right:6px}
+
+/* verdict colours */
+.good{background:var(--good-bg);color:var(--good)} .mid{background:var(--mid-bg);color:var(--mid)} .bad{background:var(--bad-bg);color:var(--bad)}
+
+/* checker */
+.checker{display:grid;grid-template-columns:1fr 1.25fr;gap:16px}
+.claim-list{display:grid;gap:8px;align-content:start}
+.claim-list button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:.92rem}
+.claim-list button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.claim-list button i{font-style:normal;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px}
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:16px;align-content:start;min-width:0}
+.pill{justify-self:start;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.verdict h3{font-family:var(--mono);font-weight:500;font-size:1.3rem}
+.verdict dl{margin:0;display:grid;gap:14px}
+.verdict dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.verdict dd{margin:4px 0 0}
+.verdict .fix{border-left:3px solid var(--good);padding-left:14px}
+.legal{font-size:.78rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+
+/* solution */
+.solution{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.sol{border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:12px;align-content:start;background:var(--surface)}
+.pair{display:grid;gap:8px;font-size:.93rem}
+.pair div{display:grid;grid-template-columns:44px 1fr;gap:10px}
+.pair b{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+.pair .from b{color:var(--bad)} .pair .to b{color:var(--good)}
+.pair .from span{color:var(--muted)}
+.sol.more{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.sol .tag{justify-self:start;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:3px 9px;border-radius:999px}
+.diff{margin-top:36px;font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);text-align:center;text-wrap:balance}
+.diff em{color:var(--accent)}
+
+/* rulebook */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.rule{padding:20px 22px;border-bottom:1px solid var(--line);display:grid;gap:6px;align-content:start;min-width:0}
+.rule:nth-child(odd){border-right:1px solid var(--line)}
+.rule:nth-last-child(-n+2){border-bottom:0}
+.rule strong{font-family:var(--serif);font-weight:500;font-size:1.2rem}
+.rule p{color:var(--muted);font-size:.92rem}
+.st{justify-self:start;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:999px}
+.st.live{background:var(--good-bg);color:var(--good)}
+.st.soon{background:var(--mid-bg);color:var(--mid)}
+.st.watch{background:var(--bad-bg);color:var(--bad)}
+.st.draft{border:1px solid var(--line);color:var(--muted)}
+.rules-note{margin-top:16px;font-size:.85rem;color:var(--muted)}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px}
+.tier{border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:10px;align-content:start;background:var(--surface)}
+.tier .price{font-family:var(--serif);font-size:2.4rem;line-height:1;font-variant-numeric:lining-nums}
+.tier p{color:var(--muted);font-size:.93rem}
+.tier.big{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tier.big p{color:var(--bg);opacity:.8}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.steps div{display:grid;gap:8px;align-content:start}
+.steps b{font-family:var(--mono);font-weight:500;font-size:.8rem;color:var(--accent)}
+.steps strong{font-family:var(--serif);font-weight:500;font-size:1.25rem}
+.steps p{color:var(--muted);font-size:.93rem}
+
+/* cta */
+.cta{background:var(--fg);color:var(--bg);border-radius:18px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.cta h2{color:var(--bg)}
+.cta p{opacity:.8;margin-top:14px;max-width:52ch}
+.cta ul{margin:0;padding-left:18px;display:grid;gap:6px;opacity:.9}
+.cta .btn{margin-top:22px}
+.cta small{display:block;margin-top:10px;opacity:.7;font-size:.82rem}
+
+footer{padding-block:40px;border-top:1px solid var(--line);display:grid;gap:14px;font-size:.85rem;color:var(--muted)}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
+
+@media (max-width:900px){
+  .hero,.head,.cta,.checker{grid-template-columns:1fr}
+  .pains,.solution,.rules,.tiers{grid-template-columns:1fr}
+  .rule:nth-child(odd){border-right:0}
+  .rule:nth-last-child(2){border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:1fr 1fr}
+  nav .links{display:none}
+  .event{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Etoffe<span>Score</span></a>
+  <div class="links"><a href="#risk">The risk</a><a href="#check">Claim checker</a><a href="#rules">Rulebook</a><a href="#pricing">Pricing</a><a href="#how">How it works</a></div>
+  <a class="btn primary" href="#free">Upload products</a>
+</div></nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <span class="kicker">For Indian food &amp; beverage brands</span>
+      <h1 style="margin-top:14px">One word on your pack can bring an <em>FSSAI notice.</em></h1>
+      <p class="lede">In 2026, FSSAI questioned brands over words like "healthy", "organic", "zero maida" and "100% natural". Upload your packs and Etoffe Score finds every issue against the latest FSSAI norms, with the exact fix. Check one product, or 10,000 in one go, and pay per product.</p>
+      <div class="ctas"><a class="btn primary" href="#free">Upload products · first one free</a><a class="btn" href="#check">Try the claim checker</a></div>
+      <p class="small">For D2C brands, FMCG companies, retailers and marketplaces.</p>
+    </div>
+    <div class="pack" aria-label="Example pack review">
+      <span class="kicker" style="color:var(--muted)">Example pack review</span>
+      <div class="label">
+        <span class="brand">Crunch Bites</span>
+        <div class="claims"><span class="bad">100% Natural</span><span class="bad">Healthy</span><span class="mid">Zero Maida</span><span class="mid">No Added Sugar</span><span class="good">Vegetarian</span></div>
+        <p class="ing">Ingredients: rolled oats, whole wheat flour, jaggery, palm oil, almonds, salt, raising agent (500 ii), flavour (nature identical)</p>
       </div>
-    </header>
+      <div class="sum"><span style="color:var(--bad)">2 high risk</span><span style="color:var(--mid)">2 need review</span><span style="color:var(--good)">1 OK</span></div>
+      <p class="note">Fictional product, shown to illustrate the review. Not legal advice.</p>
+    </div>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Creative studio</p>
-            <h1>Beautiful websites for stories worth remembering.</h1>
-            <p class="lead">
-              I design identities, build web experiences, paint expressive work,
-              and code custom interfaces that turn ideas into trust.
-            </p>
+  <section id="risk">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">The risk is real</span><h2>2026 is the year label claims got enforced.</h2></div>
+      <p>These actions were reported this year. Many of the brands named are large companies with legal teams, and they still had to change their labels.</p>
+    </div>
+    <div class="timeline">
+      <div class="event"><time>June 2026</time><div><strong>Notices to more than a dozen brands</strong><p>Companies including Emami Healthy &amp; Tasty, Neuherbs, Troovy and The Health Factory were asked to explain terms such as <q>healthy</q>, <q>organic</q> and <q>zero maida</q>.</p></div></div>
+      <div class="event"><time>July 2026</time><div><strong>"Energy drink" notices to six companies</strong><p>Red Bull, PepsiCo India, Reliance Consumer Products and others were given 90 days to stop using the term for certain caffeinated drinks.</p></div></div>
+      <div class="event"><time>3 Aug 2026</time><div><strong>Order against "100% Pure" and "100% Natural" claims</strong><p>FSSAI ordered Dabur to stop selling food products carrying these claims, calling them unverifiable. The Delhi High Court stayed the order on procedural grounds while it hears the case.</p></div></div>
+      <div class="event"><time>18 Aug 2026</time><div><strong>Six brands change their labels</strong><p>Dabur India, Ferns N Petals, Lotte India and others changed listings, packaging and marketing claims after show-cause notices.</p></div></div>
+      <div class="event" style="padding-bottom:0"><time>Now</time><div><strong>FSSAI is testing AI to scan online listings</strong><p>Reports say the system would track labels, ingredients and claims on e-commerce platforms, so problems can be flagged before any inspection.</p></div></div>
+    </div>
+  </section>
 
-            <div class="cta-row">
-              <a class="button" href="#work">View portfolio</a>
-              <a class="button button-secondary" href="#contact">Let’s talk</a>
-            </div>
+  <section id="pains">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">What keeps founders up</span><h2>The pressure comes from every side.</h2></div>
+      <p>A risky claim is no longer just a legal question. It affects your sales, your funding and your reputation.</p>
+    </div>
+    <div class="pains">
+      <div class="pain"><b>Regulator</b><h3>Notices and orders</h3><p>Show-cause notices give brands days to respond, and a single order can make a claim unusable across your whole range.</p></div>
+      <div class="pain"><b>Public</b><h3>Influencer call-outs</h3><p>Label-reading creators review packs in front of millions of followers. One viral video can undo years of brand building.</p></div>
+      <div class="pain"><b>Investors</b><h3>Due diligence</h3><p>Investors now check regulatory readiness before funding food and wellness startups, including claims in ads and influencer scripts.</p></div>
+      <div class="pain"><b>Platforms</b><h3>Weak listings</h3><p>Missing ingredients, allergens or nutrition on Blinkit, Zepto and Amazon make products harder to find and easier to question.</p></div>
+      <div class="pain"><b>Shoppers</b><h3>Lost trust</h3><p>Health-conscious buyers, including India's 101 million people with diabetes, read labels closely and switch brands when claims don't add up.</p></div>
+      <div class="pain"><b>Product</b><h3>No clear next step</h3><p>When a claim fails, teams rarely know whether to change the wording, the recipe, or both.</p></div>
+    </div>
+    <div class="cost"><strong>What a bad claim costs you:</strong><span>Reprinted packaging</span><span>Withdrawn stock</span><span>Edited listings and ads</span><span>Public trust</span><span>Delayed funding</span></div>
+  </section>
 
-            <ul class="proof-list" aria-label="Key stats">
-              <li>
-                <strong>6+</strong>
-                <span>Years</span>
-              </li>
-              <li>
-                <strong>40+</strong>
-                <span>Projects</span>
-              </li>
-              <li>
-                <strong>100%</strong>
-                <span>Custom</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="hero-visual" aria-label="Creative portfolio preview">
-            <div class="showcase-card">
-              <div class="showcase-top">
-                <span class="pill">Portfolio</span>
-                <span class="status">Live</span>
-              </div>
-
-              <div class="mockup-window">
-                <div class="window-bar">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-                <div class="mockup-art">
-                  <div class="sun"></div>
-                  <div class="hill hill-one"></div>
-                  <div class="hill hill-two"></div>
-                  <div class="panel-card card-left">
-                    <small>Brand</small>
-                    <strong>Atelier</strong>
-                  </div>
-                  <div class="panel-card card-right">
-                    <small>Launch</small>
-                    <strong>Spring</strong>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mini-metrics">
-                <div>
-                  <span>Concept</span>
-                  <strong>Luxury</strong>
-                </div>
-                <div>
-                  <span>Style</span>
-                  <strong>Modern</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="logo-strip" aria-label="Selected clients and brands">
-        <div class="container clients-row">
-          <span>Northstar</span>
-          <span>Horizon</span>
-          <span>Veloura</span>
-          <span>Petal & Pine</span>
-          <span>Monarch</span>
-          <span>Field House</span>
-        </div>
-      </section>
-
-      <section id="work" class="section">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Selected work</p>
-              <h2>My creations</h2>
-            </div>
-
-            <div class="filters" aria-label="Project filters">
-              <button class="chip is-on" data-filter="all" aria-pressed="true">All</button>
-              <button class="chip" data-filter="logo" aria-pressed="false">Logo</button>
-              <button class="chip" data-filter="website" aria-pressed="false">Websites</button>
-              <button class="chip" data-filter="painting" aria-pressed="false">Paintings</button>
-              <button class="chip" data-filter="code" aria-pressed="false">Code</button>
-            </div>
-          </div>
-
-          <div class="grid" id="grid">
-            <article class="card" data-kind="logo">
-              <div class="card-art art-one"></div>
-              <div class="card-copy">
-                <p class="card-tag">Brand identity</p>
-                <h3>Nova Studio</h3>
-                <p>Minimal mark crafted for a modern creative business.</p>
-              </div>
-            </article>
-
-            <article class="card" data-kind="website">
-              <div class="card-art art-two"></div>
-              <div class="card-copy">
-                <p class="card-tag">Website design</p>
-                <h3>Luma Atelier</h3>
-                <p>Elegant landing page built to feel premium and conversion-ready.</p>
-              </div>
-            </article>
-
-            <article class="card" data-kind="painting">
-              <div class="card-art art-three"></div>
-              <div class="card-copy">
-                <p class="card-tag">Original painting</p>
-                <h3>Golden Horizon</h3>
-                <p>Warm, layered work with expressive texture and emotion.</p>
-              </div>
-            </article>
-
-            <article class="card" data-kind="code">
-              <div class="card-art art-four"></div>
-              <div class="card-copy">
-                <p class="card-tag">Custom code</p>
-                <h3>Portfolio Builder</h3>
-                <p>Responsive front-end experience built for modern brand storytelling.</p>
-              </div>
-            </article>
-
-            <article class="card" data-kind="logo">
-              <div class="card-art art-five"></div>
-              <div class="card-copy">
-                <p class="card-tag">Brand identity</p>
-                <h3>Azura Co.</h3>
-                <p>Fresh identity built for a wellness-led lifestyle brand.</p>
-              </div>
-            </article>
-
-            <article class="card" data-kind="website">
-              <div class="card-art art-six"></div>
-              <div class="card-copy">
-                <p class="card-tag">Website design</p>
-                <h3>Northstar Studio</h3>
-                <p>Clean business website designed to feel credible and memorable.</p>
-              </div>
-            </article>
-          </div>
-
-          <p class="grid-empty" id="gridEmpty" hidden>Nothing here yet.</p>
-        </div>
-      </section>
-
-      <section id="services" class="section section-alt">
-        <div class="container">
-          <div class="section-head narrow">
-            <p class="eyebrow">What I do</p>
-            <h2>Designing the full visual and digital experience.</h2>
-          </div>
-
-          <div class="services-grid">
-            <article class="service-card">
-              <span>01</span>
-              <h3>Brand systems</h3>
-              <p>Logo design, visual identity, typography direction, and design language.</p>
-            </article>
-            <article class="service-card">
-              <span>02</span>
-              <h3>Web design</h3>
-              <p>Beautiful landing pages and conversion-driven websites tailored to your story.</p>
-            </article>
-            <article class="service-card">
-              <span>03</span>
-              <h3>Art direction</h3>
-              <p>Paintings, compositions, and visual storytelling with mood and texture.</p>
-            </article>
-            <article class="service-card">
-              <span>04</span>
-              <h3>Custom code</h3>
-              <p>Clean front-end implementation that brings the design to life online.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="process" class="section">
-        <div class="container">
-          <div class="section-head narrow">
-            <p class="eyebrow">How I work</p>
-            <h2>From idea to a polished digital presence.</h2>
-          </div>
-
-          <div class="process-grid">
-            <div class="process-card">
-              <span class="process-number">01</span>
-              <h3>Discover</h3>
-              <p>We define the brand story, audience, and visual direction.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-number">02</span>
-              <h3>Design</h3>
-              <p>We shape layouts, tones, typography, and visual systems that feel distinct.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-number">03</span>
-              <h3>Build</h3>
-              <p>We refine the final experience and bring it to life in a responsive website.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="credentials" class="section section-alt">
-        <div class="container credentials-wrap">
-          <div>
-            <p class="eyebrow">Credentials</p>
-            <h2>Creative work that looks strong and works beautifully.</h2>
-          </div>
-
-          <div class="credential-list">
-            <div>
-              <strong>Brand design</strong>
-              <span>Identity systems, logos, and visual direction.</span>
-            </div>
-            <div>
-              <strong>Website design</strong>
-              <span>Landing pages, portfolio sites, and brand experiences.</span>
-            </div>
-            <div>
-              <strong>Art & painting</strong>
-              <span>Original artwork and expressive visual concepts.</span>
-            </div>
-            <div>
-              <strong>Front-end code</strong>
-              <span>Responsive, clean, and custom interfaces built to stand out.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="cta-band">
-        <div class="container cta-inner">
-          <div>
-            <p class="eyebrow">Let’s create</p>
-            <h2>Need a website that feels premium and memorable?</h2>
-          </div>
-          <a class="button" href="mailto:hello@asterstudio.com">hello@asterstudio.com</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-row">
-        <p>© 2026 Aster Studio</p>
-        <a href="mailto:hello@asterstudio.com">hello@asterstudio.com</a>
+  <section id="check">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">Try it</span><h2>Claim checker</h2></div>
+      <p>Pick a claim from the example pack above to see how Etoffe Score reviews it: the risk, the reason, and the fix.</p>
+    </div>
+    <div class="checker">
+      <div class="claim-list" id="claimList" role="group" aria-label="Claims"></div>
+      <div class="verdict" aria-live="polite">
+        <span class="pill" id="vPill">Risk</span>
+        <h3 id="vClaim">Claim</h3>
+        <dl>
+          <div><dt>Why</dt><dd id="vWhy"></dd></div>
+          <div class="fix"><dt>How to fix it</dt><dd id="vFix"></dd></div>
+        </dl>
+        <p class="legal">Simplified example for illustration. A real review checks your full recipe and label against the current FSSAI regulations. Not legal advice.</p>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <section id="solution">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">What we fix</span><h2>Every pain, a clear fix.</h2></div>
+      <p>Send us your labels, recipes and listings. You get back one report your marketing, product and legal teams can all act on.</p>
+    </div>
+    <div class="solution">
+      <div class="sol">
+        <h3>Claim review</h3>
+        <div class="pair"><div class="from"><b>Pain</b><span>Words on your pack that could bring a notice</span></div><div class="to"><b>Fix</b><span>Every claim checked against FSSAI's Advertising &amp; Claims and Labelling regulations, with safe wording you can use instead</span></div></div>
+      </div>
+      <div class="sol">
+        <h3>Label completeness</h3>
+        <div class="pair"><div class="from"><b>Pain</b><span>Missing allergens, declarations or nutrition details</span></div><div class="to"><b>Fix</b><span>A line-by-line list of what's missing or wrong on each label</span></div></div>
+      </div>
+      <div class="sol">
+        <h3>Listing fix</h3>
+        <div class="pair"><div class="from"><b>Pain</b><span>Incomplete product pages on Blinkit, Zepto and Amazon</span></div><div class="to"><b>Fix</b><span>Complete, consistent listing data for every product, ready to upload</span></div></div>
+      </div>
+      <div class="sol more">
+        <span class="tag">Only at Etoffe</span>
+        <h3>Health score &amp; reformulation</h3>
+        <div class="pair"><div class="from"><b>Pain</b><span>No way to prove your product suits health-conscious buyers</span></div><div class="to"><b>Fix</b><span>A score for general health, diabetes and high BP, plus recipe changes that would earn the claims you want</span></div></div>
+      </div>
+    </div>
+    <p class="diff">Compliant is the minimum. <em>Trusted</em> is the goal.</p>
+  </section>
+
+  <section id="rules">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">Rulebook · updated 8 Oct 2026</span><h2>Checked against the latest norms.</h2></div>
+      <p>Every product is checked against the rules in force today, rules already notified for the future, and orders and proposals that signal where enforcement is heading. When a rule changes, we update the rulebook and can re-check your range.</p>
+    </div>
+    <div class="rules">
+      <div class="rule"><span class="st live">In force</span><strong>Labelling &amp; Display Regulations, 2020</strong><p>Mandatory label details: ingredients, allergens, nutrition, veg / non-veg symbol, dates, FSSAI logo and licence number.</p></div>
+      <div class="rule"><span class="st live">In force</span><strong>Advertising &amp; Claims Regulations, 2018</strong><p>Claims must be truthful, scientifically backed and not misleading. Nutrient claims must meet set thresholds, and disease-risk claims need prior approval.</p></div>
+      <div class="rule"><span class="st live">In force · May 2026</span><strong>Product &amp; Claim Approval portal</strong><p>Health claims that need approval now go through FSSAI's single digital portal, with a technical dossier.</p></div>
+      <div class="rule"><span class="st live">In force · 1 Jul 2026</span><strong>Coffee–chicory declaration</strong><p>Coffee and chicory percentages must appear on the front of the pack.</p></div>
+      <div class="rule"><span class="st soon">Effective 1 Jul 2027</span><strong>Labelling First Amendment, 2026</strong><p>New warnings for artificially sweetened products, small-pack logo rules and non-retail container marking. We flag what to change before reprinting.</p></div>
+      <div class="rule"><span class="st watch">Under court review</span><strong>"100%" claims</strong><p>FSSAI's 2024 juice directive and its August 2026 order against "100% Pure / Natural" claims. We treat these claims as high risk and track the case.</p></div>
+      <div class="rule"><span class="st watch">Notices issued · 2026</span><strong>"Healthy", "organic", "zero maida", "energy drink"</strong><p>Terms questioned in FSSAI notices this year. We check whether your recipe and certification support them.</p></div>
+      <div class="rule"><span class="st draft">Proposed</span><strong>Front-of-pack warning label</strong><p>FSSAI has proposed a red warning label for foods high in sugar, salt or fat, based on the Dietary Guidelines for Indians, 2024. We show which products would carry it.</p></div>
+    </div>
+    <p class="rules-note">Status as reported on 8 Oct 2026. Rules and court cases change, so every report states the rulebook date it was checked against.</p>
+  </section>
+
+  <section id="pricing">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">Pricing</span><h2>Pay per product. Scale to 10,000.</h2></div>
+      <p>Upload one pack or your whole catalogue. You only pay for the products you check.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier"><span class="kicker" style="color:var(--muted)">Try it</span><h3>First product</h3><div class="price">Free</div><p>One full issues report, so you can see the quality before you pay.</p></div>
+      <div class="tier"><span class="kicker" style="color:var(--muted)">Brands</span><h3>Per product</h3><div class="price">₹1,999</div><p>Every claim, label detail, listing gap and health score for each product. ₹1,499 each from 10 products.</p></div>
+      <div class="tier big"><span class="kicker">Catalogues</span><h3>Up to 10,000 products</h3><div class="price">Volume price</div><p>For FMCG companies, retailers, marketplaces and quick-commerce platforms. Upload your whole catalogue in one batch and get results product by product.</p></div>
+    </div>
+    <p class="rules-note">Optional: re-checks when the rules change, billed per product per year.</p>
+  </section>
+
+  <section id="how">
+    <div class="head">
+      <div style="display:grid;gap:16px"><span class="kicker">How it works</span><h2>Upload, check, fix</h2></div>
+    </div>
+    <div class="steps">
+      <div><b>Step 1</b><strong>Upload</strong><p>Front and back pack photos, label files or a catalogue export. One product or 10,000.</p></div>
+      <div><b>Step 2</b><strong>We check</strong><p>Every product is run against the latest rulebook, then reviewed by a food regulatory expert.</p></div>
+      <div><b>Step 3</b><strong>See the issues</strong><p>Each product gets a list of issues ranked by risk, with the exact wording or recipe fix.</p></div>
+      <div><b>Step 4</b><strong>Pay per product</strong><p>Pay only for what you check. Re-check whenever you launch or the rules change.</p></div>
+    </div>
+  </section>
+
+  <section id="free" style="border-top:0">
+    <div class="cta">
+      <div>
+        <span class="kicker">Start free</span>
+        <h2 style="margin-top:12px">Upload your first product. See every issue, free.</h2>
+        <p>Upload one product and get a full issues report against the latest FSSAI norms. If it's useful, upload the rest of your range and pay per product.</p>
+        <a class="btn primary" id="formLink" href="#free" target="_blank" rel="noopener">Upload products</a>
+        <small id="formNote">Upload form coming soon.</small>
+      </div>
+      <ul>
+        <li>Every claim checked: high risk, review or OK</li>
+        <li>Missing label details and listing gaps</li>
+        <li>Exact fixes, ready for your design team</li>
+        <li>A health score for each product</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="row"><span><b style="color:var(--fg);font-family:var(--serif);font-size:1.1rem">Etoffe Score</b> · Claim and health intelligence for food brands</span><span>© 2026 Etoffe</span></div>
+  <p>Enforcement actions on this page come from public news coverage:</p>
+  <ul>
+    <li><a href="https://www.forbesindia.com/amp/article/news/deep-dive/fssai-turns-the-screw-on-mislabelling/2996711/1" target="_blank" rel="noopener">Forbes India: FSSAI turns the screw on mislabelling</a></li>
+    <li><a href="https://www.business-standard.com/industry/news/fssai-s-crackdown-why-food-brands-and-liquor-firms-are-under-scanner-126080501021_1.html" target="_blank" rel="noopener">Business Standard: why food brands are under the scanner</a></li>
+    <li><a href="https://www.adgully.com/post/19470/fssai-forces-labelling-revisions-across-major-food-brands-over-misleading-claims" target="_blank" rel="noopener">Adgully: FSSAI forces labelling revisions across major brands</a></li>
+    <li><a href="https://www.newsbytesapp.com/news/science/fssai-developing-ai-system-to-food-safety-violations-online/story" target="_blank" rel="noopener">NewsBytes: FSSAI developing AI to flag violations online</a></li>
+    <li><a href="https://www.thestatesman.com/india/fssai-orders-dabur-to-halt-sales-of-food-products-carrying-unverifiable-100-natural-100-pure-claims-1503624066.html" target="_blank" rel="noopener">The Statesman: FSSAI order on "100% Natural" claims</a></li>
+    <li><a href="https://www.business-standard.com/amp/companies/news/delhi-hc-stays-fssai-order-restricting-dabur-s-use-of-100-product-claims-126080702114_1.html" target="_blank" rel="noopener">Business Standard: Delhi HC stays the order</a></li>
+    <li><a href="https://www.mondaq.com/india/product-liability-safety/1847516/indian-fssais-new-labelling-rules-2026" target="_blank" rel="noopener">Mondaq: FSSAI's new labelling rules 2026</a></li>
+    <li><a href="https://www.business-standard.com/amp/industry/news/fssai-proposes-single-phase-rollout-of-front-of-pack-nutrition-labelling-126092301449_1.html" target="_blank" rel="noopener">Business Standard: front-of-pack labelling proposal</a></li>
+    <li><a href="https://foodcomplianceinternational.com/industry-insight/news/6171-fssai-mandates-a-single-digital-window-for-prior-product-and-claim-approvals" target="_blank" rel="noopener">Food Compliance International: claim approval portal</a></li>
+    <li><a href="https://retailintel.in/signal/fssai-scrutiny-puts-food-and-wellness-startup-claims-under-i-450f007e" target="_blank" rel="noopener">RetailIntel: FSSAI scrutiny and investors</a></li>
+  </ul>
+  <p>Diabetes figure: ICMR-INDIAB study, The Lancet Diabetes &amp; Endocrinology (2023). Etoffe Score does not provide legal or medical advice.</p>
+</footer>
+
+<script>
+// simplified, illustrative reviews of the fictional "Crunch Bites" pack
+const claims = [
+  {c:"100% Natural", r:"bad", label:"High risk",
+   why:"FSSAI called \"100%\" claims unverifiable in its 3 August 2026 order against one brand, and told juice makers to drop \"100%\" claims in 2024. The order is under court review, but the risk is high. This pack also lists a raising agent and an added flavour.",
+   fix:"Remove the claim. Use specific, true statements instead, such as \"made with whole oats and almonds\"."},
+  {c:"Healthy", r:"bad", label:"High risk",
+   why:"\"Healthy\" is a general claim with no defined criteria, and several brands received notices over it in June 2026. Palm oil and jaggery also make it hard to defend.",
+   fix:"Replace it with a specific nutrient claim the product actually meets, such as \"source of fibre\", after checking it against the claim thresholds."},
+  {c:"Zero Maida", r:"mid", label:"Needs review",
+   why:"The ingredient list shows whole wheat flour and no maida, but this claim was questioned in the June 2026 notices. Every ingredient, including any premix, must be free of refined wheat flour.",
+   fix:"Confirm with suppliers that no ingredient contains refined flour, keep the documents, and consider a plainer statement such as \"made with whole wheat flour\"."},
+  {c:"No Added Sugar", r:"mid", label:"Needs review",
+   why:"Jaggery is in the ingredient list. Jaggery, honey and syrups are sugars, so adding them conflicts with a \"no added sugar\" claim.",
+   fix:"Remove the claim, or reformulate without jaggery or other added sugars before using it."},
+  {c:"Vegetarian", r:"good", label:"OK",
+   why:"No animal-derived ingredients appear in the list, and the claim matches the mandatory green veg symbol.",
+   fix:"No change needed. Keep supplier declarations on file for each ingredient."},
+];
+const list = document.getElementById("claimList");
+list.innerHTML = claims.map((x,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===0}"><span>${x.c}</span><i class="${x.r}">${x.label}</i></button>`).join("");
+function show(i){
+  const x = claims[i];
+  const pill = document.getElementById("vPill");
+  pill.className = "pill " + x.r; pill.textContent = x.label;
+  document.getElementById("vClaim").textContent = "“" + x.c + "”";
+  document.getElementById("vWhy").textContent = x.why;
+  document.getElementById("vFix").textContent = x.fix;
+  list.querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
+}
+list.addEventListener("click", e=>{ const b = e.target.closest("[data-i]"); if(b) show(+b.dataset.i); });
+show(0);
+
+// free check request: paste the Google Form link here
+const FORM_URL = "";
+const formLink = document.getElementById("formLink");
+if(FORM_URL){ formLink.href = FORM_URL; document.getElementById("formNote").hidden = true; }
+else { formLink.removeAttribute("target"); formLink.setAttribute("aria-disabled","true"); formLink.style.opacity=.6; formLink.onclick = e=>e.preventDefault(); }
+</script>
+</body>
 </html>
