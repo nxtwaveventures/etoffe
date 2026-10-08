@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Etoffe Score checks food packs and listings against the latest FSSAI norms. Upload 1 to 10,000 products and pay per product.">
+<meta name="description" content="Etoffe Score finds and fixes label and claim mistakes on food packs and listings against the latest FSSAI norms. 1 to 10,000 products, priced per product.">
 <title>Etoffe Score</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -145,6 +145,13 @@ section{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
 .tier.big{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .tier.big p{color:var(--bg);opacity:.8}
 
+/* find fix verify */
+.ffv{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ffv div{padding:20px 22px;border-right:1px solid var(--line);display:grid;gap:6px;background:var(--surface)}
+.ffv div:last-child{border-right:0}
+.ffv b{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--accent)}
+.ffv p{color:var(--muted);font-size:.93rem}
+
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .steps div{display:grid;gap:8px;align-content:start}
@@ -166,7 +173,8 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
 
 @media (max-width:900px){
   .hero,.head,.cta,.checker{grid-template-columns:1fr}
-  .pains,.solution,.rules,.tiers{grid-template-columns:1fr}
+  .pains,.solution,.rules,.tiers,.ffv{grid-template-columns:1fr}
+  .ffv div{border-right:0;border-bottom:1px solid var(--line)}
   .rule:nth-child(odd){border-right:0}
   .rule:nth-last-child(2){border-bottom:1px solid var(--line)}
   .steps{grid-template-columns:1fr 1fr}
@@ -188,7 +196,7 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
     <div>
       <span class="kicker">For Indian food &amp; beverage brands</span>
       <h1 style="margin-top:14px">One word on your pack can bring an <em>FSSAI notice.</em></h1>
-      <p class="lede">In 2026, FSSAI questioned brands over words like "healthy", "organic", "zero maida" and "100% natural". Upload your packs and Etoffe Score finds every issue against the latest FSSAI norms, with the exact fix. Check one product, or 10,000 in one go, and pay per product.</p>
+      <p class="lede">In 2026, FSSAI questioned brands over words like "healthy", "organic", "zero maida" and "100% natural". Upload your packs. Etoffe Score finds every mistake against the latest FSSAI norms, then corrects it for you: new label text, fixed artwork and clean listings. One product or 10,000 in one go, priced per product.</p>
       <div class="ctas"><a class="btn primary" href="#free">Upload products · first one free</a><a class="btn" href="#check">Try the claim checker</a></div>
       <p class="small">For D2C brands, FMCG companies, retailers and marketplaces.</p>
     </div>
@@ -255,8 +263,8 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
 
   <section id="solution">
     <div class="head">
-      <div style="display:grid;gap:16px"><span class="kicker">What we fix</span><h2>Every pain, a clear fix.</h2></div>
-      <p>Send us your labels, recipes and listings. You get back one report your marketing, product and legal teams can all act on.</p>
+      <div style="display:grid;gap:16px"><span class="kicker">What we fix</span><h2>We find the mistakes. Then we fix them.</h2></div>
+      <p>Most tools stop at a report. We hand back corrected label text, updated artwork files and listing data that's ready to upload, then check them again.</p>
     </div>
     <div class="solution">
       <div class="sol">
@@ -276,6 +284,11 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
         <h3>Health score &amp; reformulation</h3>
         <div class="pair"><div class="from"><b>Pain</b><span>No way to prove your product suits health-conscious buyers</span></div><div class="to"><b>Fix</b><span>A score for general health, diabetes and high BP, plus recipe changes that would earn the claims you want</span></div></div>
       </div>
+    </div>
+    <div class="ffv">
+      <div><b>Find</b><p>Every claim, label detail and listing checked against the latest rulebook.</p></div>
+      <div><b>Fix</b><p>Corrected label text, updated artwork files and listing data, ready for print and upload.</p></div>
+      <div><b>Verify</b><p>We re-check every correction, so nothing goes to print until it passes.</p></div>
     </div>
     <p class="diff">Compliant is the minimum. <em>Trusted</em> is the goal.</p>
   </section>
@@ -301,25 +314,25 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
   <section id="pricing">
     <div class="head">
       <div style="display:grid;gap:16px"><span class="kicker">Pricing</span><h2>Pay per product. Scale to 10,000.</h2></div>
-      <p>Upload one pack or your whole catalogue. You only pay for the products you check.</p>
+      <p>Upload one pack or your whole catalogue. Pay to find the mistakes, and add corrections for the products you want fixed.</p>
     </div>
     <div class="tiers">
       <div class="tier"><span class="kicker" style="color:var(--muted)">Try it</span><h3>First product</h3><div class="price">Free</div><p>One full issues report, so you can see the quality before you pay.</p></div>
-      <div class="tier"><span class="kicker" style="color:var(--muted)">Brands</span><h3>Per product</h3><div class="price">₹1,999</div><p>Every claim, label detail, listing gap and health score for each product. ₹1,499 each from 10 products.</p></div>
-      <div class="tier big"><span class="kicker">Catalogues</span><h3>Up to 10,000 products</h3><div class="price">Volume price</div><p>For FMCG companies, retailers, marketplaces and quick-commerce platforms. Upload your whole catalogue in one batch and get results product by product.</p></div>
+      <div class="tier"><span class="kicker" style="color:var(--muted)">Brands</span><h3>Per product</h3><div class="price">₹1,999</div><p>Every mistake found: claims, label details, listing gaps and health score. ₹1,499 each from 10 products. Corrections are priced per product.</p></div>
+      <div class="tier big"><span class="kicker">Catalogues</span><h3>Up to 10,000 products</h3><div class="price">Volume price</div><p>For FMCG companies, retailers, marketplaces and quick-commerce platforms. Upload your whole catalogue in one batch, then get findings and corrections product by product.</p></div>
     </div>
     <p class="rules-note">Optional: re-checks when the rules change, billed per product per year.</p>
   </section>
 
   <section id="how">
     <div class="head">
-      <div style="display:grid;gap:16px"><span class="kicker">How it works</span><h2>Upload, check, fix</h2></div>
+      <div style="display:grid;gap:16px"><span class="kicker">How it works</span><h2>Upload, find, fix, verify</h2></div>
     </div>
     <div class="steps">
       <div><b>Step 1</b><strong>Upload</strong><p>Front and back pack photos, label files or a catalogue export. One product or 10,000.</p></div>
-      <div><b>Step 2</b><strong>We check</strong><p>Every product is run against the latest rulebook, then reviewed by a food regulatory expert.</p></div>
-      <div><b>Step 3</b><strong>See the issues</strong><p>Each product gets a list of issues ranked by risk, with the exact wording or recipe fix.</p></div>
-      <div><b>Step 4</b><strong>Pay per product</strong><p>Pay only for what you check. Re-check whenever you launch or the rules change.</p></div>
+      <div><b>Step 2</b><strong>We find</strong><p>Every product is checked against the latest rulebook and reviewed by a food regulatory expert.</p></div>
+      <div><b>Step 3</b><strong>We fix</strong><p>You get corrected label text, updated artwork files and clean listing data for every issue.</p></div>
+      <div><b>Step 4</b><strong>Verify and pay</strong><p>We re-check the corrections. You pay per product, and can re-check whenever the rules change.</p></div>
     </div>
   </section>
 
@@ -335,7 +348,7 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.8rem}
       <ul>
         <li>Every claim checked: high risk, review or OK</li>
         <li>Missing label details and listing gaps</li>
-        <li>Exact fixes, ready for your design team</li>
+        <li>Corrected label text and listing data</li>
         <li>A health score for each product</li>
       </ul>
     </div>
